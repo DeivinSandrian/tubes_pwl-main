@@ -5,8 +5,12 @@ use App\Http\Controllers\ProgramStudiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('layouts.starter');
+    return view('layouts.mahasiswa.index');
 });
+
+Route::get('/mahasiswa', function () {
+    return view('mahasiswa.index');
+})->middleware(['auth', 'verified'])->name('mahasiswaList');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -10,5 +10,23 @@ class Surat extends Model
 
     protected $primaryKey = 'id_surat';
 
-    protected $fillable = ['jenis_surat', ''];
+    protected $fillable = ['jenis_surat',
+        'status_pengajuan',
+        'tanggal_pengajuan',
+        'tanggal_persetujuan',
+        'user_id',
+    ];
+
+    protected $casts = [
+        'jenis_surat' => 'string',
+        'status_pengajuan' => 'string',
+        'tanggal_pengajuan' => 'date',
+        'tanggal_persetujuan' => 'date',
+    ];
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+        
 }
