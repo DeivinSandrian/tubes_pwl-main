@@ -4,9 +4,15 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramStudiController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+// Route::get('/', function () {
+//     return view('layouts.mahasiswa.index');
+// });
+
+Route::get('/student/form', function () {
     return view('layouts.mahasiswa.index');
-});
+})->name('student.form');
+
+Route::post('/student', [UserController::class, 'store'])->name('student.store');
 
 Route::get('/mahasiswa', function () {
     return view('mahasiswa.index');

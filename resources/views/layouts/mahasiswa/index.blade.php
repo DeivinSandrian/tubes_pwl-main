@@ -456,9 +456,9 @@
                   <div class="card-body">
                     <h4 class="card-title">Student Data Submission</h4>
                     <p class="card-description"> Input your details to submit </p>
-                    <form class="forms-sample" action="StudentController.php" method="POST">
+                    <form class="forms-sample" action="{{ route('') }}" method="POST">
                       <div class="form-group">
-                        <label for="id_user">User ID (NIM)</label>
+                        <label for="id_user">User ID (NRP)</label>
                         <input type="number" class="form-control" id="id_user" name="id_user" placeholder="Enter your NIM" required>
                       </div>
                       <div class="form-group">

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -14,12 +13,17 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_user';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
-
-    protected $primaryKey = 'id_user';
     protected $fillable = [
         'id_user',
         'username',
@@ -52,4 +56,32 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Save a new student record.
+     *
+     * @param int $id_user
+     * @param string $nama
+     * @param int $program_studi_id_prodi
+     * @return bool
+     */
+    public static function saveStudent($id_user, $nama, $program_studi_id_prodi)
+    {
+        try {
+            // Create a new user record using Eloquent
+            $user = self::create([
+                'id_user' => $id_user,
+                'nama' => $nama,
+                'program_studi_id_prodi' => $program_studi_id_prodi,
+                // Eloquent will automatically set created_at and updated_at
+            ]);
+
+            return true;
+        } catch (\Exception $e) {
+            // In a production environment, you might want to log this error instead of echoing it
+            \Log::error("Error saving student: " . $e->getMessage());
+            return false;
+        }
+    }
 }
+?>
