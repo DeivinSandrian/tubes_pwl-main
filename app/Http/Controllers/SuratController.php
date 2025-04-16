@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use App\Http\Controllers\Controller;
 use App\Models\Surat;
 use Illuminate\Http\Request;
@@ -83,3 +84,11 @@ class SuratController extends Controller
         return redirect()->route('mahasiswa.dashboard')->with('success', 'Permohonan surat berhasil diajukan.');
     }
 }
+=======
+use Illuminate\Http\Request;
+
+class SuratController extends Controller
+{
+    //
+}
+>>>>>>> 1811f1896ddb1aab15e58016dfa8de2ab0b068bf

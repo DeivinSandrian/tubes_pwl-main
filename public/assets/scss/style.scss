@@ -108,7 +108,11 @@
 
 /*-------------------------------------------------------------------*/
 /* === Import template variables === */
+<<<<<<< HEAD
 @import 'variables';
+=======
+@import './variables';
+>>>>>>> 1811f1896ddb1aab15e58016dfa8de2ab0b068bf
 
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
@@ -202,10 +206,17 @@
 @import "components/plugin-overrides/jquery-file-upload";
 @import "components/plugin-overrides/js-grid";
 @import "components/plugin-overrides/jvectormap";
+<<<<<<< HEAD
 @import "components/plugin-overrides/justguage";
 @import "components/plugin-overrides/light-gallery";
 @import "components/plugin-overrides/listify";
 @import "components/plugin-overrides/morris";
+=======
+@import "components/plugin-overrides/justguage.scss";
+@import "components/plugin-overrides/light-gallery";
+@import "components/plugin-overrides/listify";
+@import "components/plugin-overrides/morris.scss";
+>>>>>>> 1811f1896ddb1aab15e58016dfa8de2ab0b068bf
 @import "components/plugin-overrides/no-ui-slider";
 @import "components/plugin-overrides/owl-carousel";
 @import "components/plugin-overrides/progressbar-js";
@@ -228,7 +239,14 @@
 /* === Landing screens === */
 @import "components/landing-screens/auth";
 
+<<<<<<< HEAD
 @import 'navbar';
 @import 'sidebar';
 @import 'layouts';
 @import 'vertical/vertical-wrapper';
+=======
+@import './navbar';
+@import './sidebar';
+@import './layouts';
+@import './vertical/vertical-wrapper';
+>>>>>>> 1811f1896ddb1aab15e58016dfa8de2ab0b068bf

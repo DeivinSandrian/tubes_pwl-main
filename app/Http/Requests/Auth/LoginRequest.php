@@ -27,7 +27,11 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
+<<<<<<< HEAD
             'email' => ['required', 'string', 'email'],
+=======
+            'id_user' => ['required', 'integer', 'max:99999999999'], // Ganti 'email' menjadi 'id_user'
+>>>>>>> 1811f1896ddb1aab15e58016dfa8de2ab0b068bf
             'password' => ['required', 'string'],
         ];
     }
@@ -41,11 +45,19 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
+<<<<<<< HEAD
         if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),
+=======
+        if (! Auth::attempt($this->only('id_user', 'password'), $this->boolean('remember'))) {
+            RateLimiter::hit($this->throttleKey());
+
+            throw ValidationException::withMessages([
+                'id_user' => trans('auth.failed'), // Ganti 'email' menjadi 'id_user'
+>>>>>>> 1811f1896ddb1aab15e58016dfa8de2ab0b068bf
             ]);
         }
 
@@ -68,7 +80,11 @@ class LoginRequest extends FormRequest
         $seconds = RateLimiter::availableIn($this->throttleKey());
 
         throw ValidationException::withMessages([
+<<<<<<< HEAD
             'email' => trans('auth.throttle', [
+=======
+            'id_user' => trans('auth.throttle', [ // Ganti 'email' menjadi 'id_user'
+>>>>>>> 1811f1896ddb1aab15e58016dfa8de2ab0b068bf
                 'seconds' => $seconds,
                 'minutes' => ceil($seconds / 60),
             ]),
@@ -80,6 +96,22 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
+<<<<<<< HEAD
         return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());
     }
 }
+=======
+        return Str::transliterate(Str::lower($this->string('id_user')).'|'.$this->ip()); // Ganti 'email' menjadi 'id_user'
+    }
+
+    /**
+     * Get custom attributes for validator errors.
+     */
+    public function attributes(): array
+    {
+        return [
+            'id_user' => 'ID User', // Nama atribut untuk pesan error
+        ];
+    }
+}
+>>>>>>> 1811f1896ddb1aab15e58016dfa8de2ab0b068bf

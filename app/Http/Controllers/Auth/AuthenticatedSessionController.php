@@ -28,6 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+<<<<<<< HEAD
         $user = Auth::user();
 
         // Redirect based on role
@@ -41,6 +42,9 @@ class AuthenticatedSessionController extends Controller
             default:
                 return redirect('/');
         }
+=======
+        return redirect()->intended(route('dashboard', absolute: false));
+>>>>>>> 1811f1896ddb1aab15e58016dfa8de2ab0b068bf
     }
 
     /**
@@ -56,4 +60,8 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1811f1896ddb1aab15e58016dfa8de2ab0b068bf
